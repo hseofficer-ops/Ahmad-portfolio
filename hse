@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fauzan Ahmad | HSE Officer Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        safety: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                        },
+                        slateDark: '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 antialiased selection:bg-safety-500 selection:text-slate-950">
+
+    <!-- Notification Toast / Modal Mockup -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-32 opacity-0 transition-all duration-300 bg-emerald-600 text-white px-6 py-3 rounded-xl shadow-2xl flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-xl"></i>
+        <div>
+            <h4 class="font-bold text-sm">Success!</h4>
+            <p id="toast-message" class="text-xs text-emerald-100">Message sent successfully.</p>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-40 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-safety-500 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-safety-500/20">
+                    FA
+                </div>
+                <div>
+                    <span class="font-bold text-lg tracking-tight text-white block">Fauzan Ahmad</span>
+                    <span class="text-xs text-safety-500 font-semibold tracking-wider uppercase">HSE Officer</span>
+                </div>
+            </div>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#about" class="hover:text-safety-500 transition-colors">About</a>
+                <a href="#expertise" class="hover:text-safety-500 transition-colors">Core Expertise</a>
+                <a href="#experience" class="hover:text-safety-500 transition-colors">Experience</a>
+                <a href="#tools" class="hover:text-safety-500 transition-colors">Digital Tools</a>
+                <a href="#contact" class="px-5 py-2.5 rounded-xl bg-safety-500 hover:bg-safety-600 text-slate-950 font-bold transition-all shadow-lg shadow-safety-500/10">Get in Touch</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-slate-300 hover:text-white p-2 focus:outline-none" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-950 border-b border-slate-800 px-6 py-5 space-y-4">
+            <a href="#about" class="block text-slate-300 hover:text-safety-500 font-medium">About</a>
+            <a href="#expertise" class="block text-slate-300 hover:text-safety-500 font-medium">Core Expertise</a>
+            <a href="#experience" class="block text-slate-300 hover:text-safety-500 font-medium">Experience</a>
+            <a href="#tools" class="block text-slate-300 hover:text-safety-500 font-medium">Digital Tools</a>
+            <a href="#contact" class="block text-center w-full py-3 rounded-xl bg-safety-500 text-slate-950 font-bold">Get in Touch</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden border-b border-slate-800">
+        <!-- Background industrial grid glow -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30"></div>
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-safety-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <!-- Experience Badge -->
+                    <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-safety-500/10 border border-safety-500/30 text-safety-400 font-semibold text-sm">
+                        <i class="fa-solid fa-shield-halved text-safety-500"></i>
+                        <span>4+ Years of Professional HSE Excellence</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight">
+                        Protecting Lives, <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-safety-400 to-amber-200">Ensuring Compliance.</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Dedicated <strong class="text-slate-200">Occupational Health and Safety (HSE) Officer</strong> specializing in high-rise civil construction and industrial refinery projects. Committed to zero-incident environments through strict safety protocols, rigorous hazard mitigation, and proactive site leadership.
+                    </p>
+
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#contact" class="px-8 py-4 rounded-xl bg-safety-500 hover:bg-safety-600 text-slate-950 font-bold transition-all shadow-xl shadow-safety-500/20 flex items-center gap-3">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Contact Me</span>
+                        </a>
+                        <button onclick="downloadCV()" class="px-8 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold border border-slate-700 transition-all flex items-center gap-3">
+                            <i class="fa-solid fa-file-arrow-down text-safety-500"></i>
+                            <span>Download CV</span>
+                        </button>
+                    </div>
+
+                    <!-- Key highlights chips -->
+                    <div class="pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0">
+                        <div class="text-center lg:text-left">
+                            <h4 class="text-2xl font-bold text-white">4+</h4>
+                            <p class="text-xs text-slate-400 mt-0.5">Years Experience</p>
+                        </div>
+                        <div class="text-center lg:text-left border-x border-slate-800 px-2">
+                            <h4 class="text-2xl font-bold text-white">100%</h4>
+                            <p class="text-xs text-slate-400 mt-0.5">Safety Compliance</p>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <h4 class="text-2xl font-bold text-white">Gulf / India</h4>
+                            <p class="text-xs text-slate-400 mt-0.5">Open to Relocate</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image Card / Safety Profile Graphic -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="w-full max-w-md bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-2xl relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-safety-500/10 rounded-full blur-2xl group-hover:bg-safety-500/20 transition-all"></div>
+                        
+                        <div class="relative z-10 space-y-6">
+                            <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 rounded-2xl bg-safety-500/20 border border-safety-500/40 flex items-center justify-center text-safety-400 text-xl font-bold">
+                                        <i class="fa-solid fa-hard-hat"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-white text-lg">Fauzan Ahmad</h3>
+                                        <p class="text-xs text-safety-400 font-medium">HSE Safety Officer</p>
+                                    </div>
+                                </div>
+                                <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold border border-emerald-500/20 flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                    Active / Available
+                                </span>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800/80">
+                                    <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-1">Base Location</span>
+                                    <div class="flex items-center gap-2 text-white font-medium">
+                                        <i class="fa-solid fa-location-dot text-safety-500"></i>
+                                        <span>Ahmedabad, India &bull; Open to Gulf / Global Opportunities</span>
+                                    </div>
+                                </div>
+
+                                <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800/80">
+                                    <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-1">Key Qualifications</span>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-300">BA Degree (3 Yrs)</span>
+                                        <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-300">Dip. Industrial Safety</span>
+                                        <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-300">Advanced Diploma in CA</span>
+                                        <span class="px-2.5 py-1 rounded-lg bg-safety-500/10 border border-safety-500/30 text-xs text-safety-400 font-medium">NEBOSH (Upcoming)</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pt-2">
+                                <a href="#contact" class="w-full py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold transition-colors flex items-center justify-center gap-2 border border-slate-700 text-sm">
+                                    <i class="fa-solid fa-envelope text-safety-500"></i>
+                                    <span>Inquire for Opportunities</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me / Profile Summary -->
+    <section id="about" class="py-24 bg-slate-950 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-safety-500 font-semibold text-sm tracking-wider uppercase">Professional Background</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">About Me & Educational Qualifications</h2>
+                <p class="text-slate-400 mt-4">Combining academic foundation with rigorous industrial training to maintain highest standards of occupational health and safety.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 shadow-xl space-y-6">
+                        <div class="w-14 h-14 rounded-2xl bg-safety-500/10 border border-safety-500/30 flex items-center justify-center text-safety-500 text-2xl">
+                            <i class="fa-solid fa-user-shield"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">Profile Summary</h3>
+                        <p class="text-slate-300 leading-relaxed">
+                            I am Fauzan Ahmad, a dedicated Safety Officer with over 4 years of hands-on site experience in heavy civil construction and high-profile industrial environments. My expertise lies in hazard identification, enforcing Permit-to-Work (PTW) protocols, conducting daily toolbox talks, and ensuring strict adherence to OSHA and local safety regulations.
+                        </p>
+                        <p class="text-slate-300 leading-relaxed">
+                            With a strong administrative and digital documentation background, I streamline safety audits, stock registers, and PPE inventory trackers efficiently to maintain zero-harm project workflows.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 space-y-4">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                        <i class="fa-solid fa-graduation-cap text-safety-500"></i>
+                        <span>Education & Certifications</span>
+                    </h3>
+
+                    <!-- Education Card 1 -->
+                    <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 flex items-start gap-4 hover:border-safety-500/50 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-safety-500 shrink-0 font-bold">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-safety-500 font-semibold uppercase">Specialized Safety Diploma</span>
+                            <h4 class="text-lg font-bold text-white">Diploma in Industrial Safety</h4>
+                            <p class="text-sm text-slate-400 mt-1">Comprehensive training in industrial risk management, safety laws, machine guarding, and emergency preparedness.</p>
+                        </div>
+                    </div>
+
+                    <!-- Education Card 2 -->
+                    <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 flex items-start gap-4 hover:border-safety-500/50 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-safety-500 shrink-0 font-bold">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-safety-500 font-semibold uppercase">Technical Skill</span>
+                            <h4 class="text-lg font-bold text-white">Advanced Diploma in Computer Applications</h4>
+                            <p class="text-sm text-slate-400 mt-1">Proficiency in digital data management, advanced spreadsheets, reporting software, and modern database tracking.</p>
+                        </div>
+                    </div>
+
+                    <!-- Education Card 3 -->
+                    <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 flex items-start gap-4 hover:border-safety-500/50 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-safety-500 shrink-0 font-bold">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-safety-500 font-semibold uppercase">Academic Degree</span>
+                            <h4 class="text-lg font-bold text-white">Bachelor of Arts (BA) Degree (3 Years)</h4>
+                            <p class="text-sm text-slate-400 mt-1">Strengthened analytical thinking, verbal & written communication, and structured report compilation.</p>
+                        </div>
+                    </div>
+
+                    <!-- Education Card 4 (Upcoming NEBOSH) -->
+                    <div class="bg-gradient-to-r from-safety-500/10 to-slate-900 p-6 rounded-2xl border border-safety-500/30 flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-safety-500/20 flex items-center justify-center text-safety-400 shrink-0 font-bold">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-safety-400 font-bold uppercase tracking-wider">International Certification in Progress</span>
+                            <h4 class="text-lg font-bold text-white">NEBOSH Certification (Upcoming)</h4>
+                            <p class="text-sm text-slate-300 mt-1">Currently pursuing global health and safety credentials to further align with international oil & gas and construction standards.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Expertise & Skills -->
+    <section id="expertise" class="py-24 bg-slate-900 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-safety-500 font-semibold text-sm tracking-wider uppercase">Competency Matrix</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Core Expertise & Safety Protocols</h2>
+                <p class="text-slate-400 mt-4">Practical competencies implemented daily on high-hazard sites to safeguard personnel and assets.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Skill 1 -->
+                <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 hover:border-safety-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-safety-500/10 border border-safety-500/30 flex items-center justify-center text-safety-500 text-xl mb-4 group-hover:bg-safety-500 group-hover:text-slate-950 transition-all">
+                        <i class="fa-solid fa-file-signature"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Permit-to-Work (PTW)</h3>
+                    <p class="text-sm text-slate-400">Issuing, reviewing, and closing hot work, confined space, excavation, and working-at-height permits securely.</p>
+                </div>
+
+                <!-- Skill 2 -->
+                <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 hover:border-safety-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-safety-500/10 border border-safety-500/30 flex items-center justify-center text-safety-500 text-xl mb-4 group-hover:bg-safety-500 group-hover:text-slate-950 transition-all">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">HIRA & Hazard ID</h3>
+                    <p class="text-sm text-slate-400">Conducting Hazard Identification and Risk Assessments prior to critical operations to establish control hierarchies.</p>
+                </div>
+
+                <!-- Skill 3 -->
+                <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 hover:border-safety-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-safety-500/10 border border-safety-500/30 flex items-center justify-center text-safety-500 text-xl mb-4 group-hover:bg-safety-500 group-hover:text-slate-950 transition-all">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Toolbox Talks</h3>
+                    <p class="text-sm text-slate-400">Leading daily pre-shift safety briefings, job-specific safety instructions, and boosting workforce safety awareness.</p>
+                </div>
+
+                <!-- Skill 4 -->
+                <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 hover:border-safety-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-safety-500/10 border border-safety-500/30 flex items-center justify-center text-safety-500 text-xl mb-4 group-hover:bg-safety-500 group-hover:text-slate-950 transition-all">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Edge & Scaffolding</h3>
+                    <p class="text-sm text-slate-400">Inspecting scaffolding tags (Green/Red), fall protection harnesses, lifeline systems, and perimeter edge barricades.</p>
+                </div>
+
+                <!-- Skill 5 -->
+                <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 hover:border-safety-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-safety-500/10 border border-safety-500/30 flex items-center justify-center text-safety-500 text-xl mb-4 group-hover:bg-safety-500 group-hover:text-slate-950 transition-all">
+                        <i class="fa-solid fa-clipboard-user"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Daily Site Reporting</h3>
+                    <p class="text-sm text-slate-400">Compiling comprehensive daily safety logs, observation reports, near-miss registries, and compliance metrics.</p>
+                </div>
+
+                <!-- Skill 6 -->
+                <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 hover:border-safety-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-safety-500/10 border border-safety-500/30 flex items-center justify-center text-safety-500 text-xl mb-4 group-hover:bg-safety-500 group-hover:text-slate-950 transition-all">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Incident Investigation</h3>
+                    <p class="text-sm text-slate-400">Root Cause Analysis (RCA) for near misses and incidents, establishing corrective and preventive actions (CAPA).</p>
+                </div>
+
+                <!-- Skill 7 -->
+                <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 hover:border-safety-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-safety-500/10 border border-safety-500/30 flex items-center justify-center text-safety-500 text-xl mb-4 group-hover:bg-safety-500 group-hover:text-slate-950 transition-all">
+                        <i class="fa-solid fa-hand"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Stop Work Authority</h3>
+                    <p class="text-sm text-slate-400">Empowering and exercising immediate halt of unsafe acts or substandard working conditions without hesitation.</p>
+                </div>
+
+                <!-- Skill 8 -->
+                <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 hover:border-safety-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-safety-500/10 border border-safety-500/30 flex items-center justify-center text-safety-500 text-xl mb-4 group-hover:bg-safety-500 group-hover:text-slate-950 transition-all">
+                        <i class="fa-solid fa-fire-extinguisher"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Emergency Response</h3>
+                    <p class="text-sm text-slate-400">Coordination of fire drills, first aid stations, evacuation routes, and emergency rescue readiness protocols.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Experience -->
+    <section id="experience" class="py-24 bg-slate-950 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-safety-500 font-semibold text-sm tracking-wider uppercase">Career Track Record</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Professional Experience</h2>
+                <p class="text-slate-400 mt-4">Hands-on HSE execution across complex multi-story construction and industrial manufacturing projects.</p>
+            </div>
+
+            <div class="space-y-8 max-w-4xl mx-auto">
+                <!-- Experience Item 1 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-safety-500/5 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-slate-800">
+                        <div>
+                            <span class="px-3 py-1 rounded-full bg-safety-500/10 text-safety-400 text-xs font-bold border border-safety-500/20 uppercase tracking-wider">Civil Construction Sector</span>
+                            <h3 class="text-2xl font-bold text-white mt-2">HSE Safety Officer</h3>
+                            <p class="text-slate-400 font-medium">22-Floor High-Rise Building Construction Project</p>
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-400 bg-slate-950 px-4 py-2 rounded-xl border border-slate-800 text-sm">
+                            <i class="fa-regular fa-calendar text-safety-500"></i>
+                            <span>2 Years Field Experience</span>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 text-slate-300 text-sm md:text-base">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-safety-500 mt-1.5 shrink-0"></i>
+                            <span>Enforced strict fall protection protocols for high-rise workers, including 100% tie-off compliance, lifeline audits, and perimeter net inspections.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-safety-500 mt-1.5 shrink-0"></i>
+                            <span>Managed scaffolding erection and dismantling checks, ensuring all scaffolding towers displayed valid green safety tags prior to multi-trade access.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-safety-500 mt-1.5 shrink-0"></i>
+                            <span>Conducted daily safety walkthroughs across all 22 floors, identifying housekeeping gaps, electrical hazards, and unguarded floor openings.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-safety-500 mt-1.5 shrink-0"></i>
+                            <span>Facilitated tool box talks for subcontractors and heavy machinery operators to mitigate risks associated with tower crane lifting operations.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Experience Item 2 -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-safety-500/5 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-6 border-b border-slate-800">
+                        <div>
+                            <span class="px-3 py-1 rounded-full bg-safety-500/10 text-safety-400 text-xs font-bold border border-safety-500/20 uppercase tracking-wider">Industrial & Refinery Sector</span>
+                            <h3 class="text-2xl font-bold text-white mt-2">HSE Safety Officer</h3>
+                            <p class="text-slate-400 font-medium">Hyundai Manufacturing Facility Site (Steel Structure Erection & Mechanical Installation)</p>
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-400 bg-slate-950 px-4 py-2 rounded-xl border border-slate-800 text-sm">
+                            <i class="fa-regular fa-calendar text-safety-500"></i>
+                            <span>2 Years Field Experience</span>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 text-slate-300 text-sm md:text-base">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-safety-500 mt-1.5 shrink-0"></i>
+                            <span>Oversaw heavy steel structure erection and precision mechanical equipment installation ensuring strict adherence to industrial safety codes.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-safety-500 mt-1.5 shrink-0"></i>
+                            <span>Controlled Permit-to-Work (PTW) issuance for hot works (welding/cutting), confined space entry within industrial tanks, and heavy crane lifts.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-safety-500 mt-1.5 shrink-0"></i>
+                            <span>Inspected rigging gear, wire ropes, shackles, and crane lifting plans prior to heavy structural component placement.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-safety-500 mt-1.5 shrink-0"></i>
+                            <span>Maintained zero lost-time injury (LTI) records through continuous behavioral safety observations and proactive hazard correction.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Tools & Documentation -->
+    <section id="tools" class="py-24 bg-slate-900 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-safety-500 font-semibold text-sm tracking-wider uppercase">Administrative & Tech Proficiency</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Digital Tools & Site Documentation</h2>
+                <p class="text-slate-400 mt-4">Leveraging advanced computer skills (Advanced Diploma in CA) to maintain transparent, audit-ready digital logs.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Tool 1 -->
+                <div class="bg-slate-950 p-8 rounded-3xl border border-slate-800 flex flex-col justify-between hover:border-safety-500/50 transition-all">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-2xl mb-6">
+                            <i class="fa-solid fa-file-excel"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Microsoft Excel & Custom Registers</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Building custom automated spreadsheets, safety stock registers, incident tracking dashboards, and compliance checklists for swift reporting.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                        <span>Proficiency Level</span>
+                        <span class="text-emerald-400 font-bold">Advanced</span>
+                    </div>
+                </div>
+
+                <!-- Tool 2 -->
+                <div class="bg-slate-950 p-8 rounded-3xl border border-slate-800 flex flex-col justify-between hover:border-safety-500/50 transition-all">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 text-2xl mb-6">
+                            <i class="fa-solid fa-boxes-stacked"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">PPE Inventory Trackers</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Maintaining meticulous daily Personal Protective Equipment (PPE) distribution logs, safety gear quality checks, and stock replenishment schedules.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                        <span>Inventory Control</span>
+                        <span class="text-blue-400 font-bold">100% Accurate</span>
+                    </div>
+                </div>
+
+                <!-- Tool 3 -->
+                <div class="bg-slate-950 p-8 rounded-3xl border border-slate-800 flex flex-col justify-between hover:border-safety-500/50 transition-all">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-2xl mb-6">
+                            <i class="fa-solid fa-file-word"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">MS Word & Automated Attendance</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Drafting professional safety manuals, toolbox meeting minutes, incident investigation summaries, and automated attendance & briefing sheets.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                        <span>Documentation</span>
+                        <span class="text-amber-400 font-bold">Professional</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-safety-500 font-semibold text-sm tracking-wider uppercase">Let's Connect</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Get in Touch</h2>
+                <p class="text-slate-400 mt-4">Available for HSE Officer roles in high-rise construction, refineries, and international projects (Gulf region & global).</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Contact Information -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 space-y-6 shadow-xl">
+                        <h3 class="text-2xl font-bold text-white">Contact Information</h3>
+                        <p class="text-slate-400 text-sm">Reach out via phone, email, or drop a message using the form. Ready for immediate deployment.</p>
+
+                        <div class="space-y-4 pt-2">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-safety-500 text-lg shrink-0">
+                                    <i class="fa-solid fa-user-tie"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 uppercase tracking-wider block">Full Name</span>
+                                    <span class="text-white font-bold text-lg">Fouzan Ahmad</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-safety-500 text-lg shrink-0">
+                                    <i class="fa-solid fa-briefcase"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 uppercase tracking-wider block">Designation</span>
+                                    <span class="text-white font-bold">HSE / Occupational Health & Safety Officer</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-safety-500 text-lg shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 uppercase tracking-wider block">Location / Mobility</span>
+                                    <span class="text-white font-medium">Ahmedabad, India &bull; Open to Gulf & International Opportunities</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-safety-500 text-lg shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 uppercase tracking-wider block">Email</span>
+                                    <span class="text-white font-medium">fouzan.ahmad.hse@example.com</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-safety-500 text-lg shrink-0">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 uppercase tracking-wider block">Phone / WhatsApp</span>
+                                    <span class="text-white font-medium">+91 98765 43210</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Working Contact Form Mockup -->
+                <div class="lg:col-span-7">
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-xl space-y-6">
+                        <h3 class="text-2xl font-bold text-white">Send a Message</h3>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Your Name</label>
+                                <input type="text" id="sender-name" required placeholder="Enter your name or company" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-safety-500 transition-colors text-sm">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Email Address</label>
+                                <input type="email" id="sender-email" required placeholder="name@company.com" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-safety-500 transition-colors text-sm">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Subject / Project Type</label>
+                            <input type="text" id="sender-subject" required placeholder="e.g. HSE Officer Job Opening / Gulf Project" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-safety-500 transition-colors text-sm">
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Message</label>
+                            <textarea id="sender-message" rows="5" required placeholder="Provide details regarding the role, project location, or requirements..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-safety-500 transition-colors text-sm resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-safety-500 hover:bg-safety-600 text-slate-950 font-bold transition-all shadow-xl shadow-safety-500/20 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Send Inquiry</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800/80 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-safety-500 flex items-center justify-center text-slate-950 font-black text-sm">
+                    FA
+                </div>
+                <span class="text-slate-300 font-semibold text-sm">&copy; 2026 Fouzan Ahmad. All Rights Reserved.</span>
+            </div>
+            <p class="text-xs text-slate-500">Professional HSE Officer Portfolio &bull; Built with Industrial Safety Standards</p>
+            <div class="flex items-center gap-4 text-slate-400">
+                <a href="#about" class="hover:text-safety-500 text-sm transition-colors">About</a>
+                <a href="#expertise" class="hover:text-safety-500 text-sm transition-colors">Expertise</a>
+                <a href="#contact" class="hover:text-safety-500 text-sm transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Download CV handler
+        function downloadCV() {
+            showToast("CV download simulated! In a live environment, Fouzan's PDF resume will download.");
+        }
+
+        // Contact form submission handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('sender-name').value;
+            showToast(`Thank you ${name}! Your message has been sent successfully.`);
+            document.getElementById('contact-form').reset();
+        }
+
+        // Toast notification helper
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            toast.classList.remove('translate-y-32', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-32', 'opacity-0');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
